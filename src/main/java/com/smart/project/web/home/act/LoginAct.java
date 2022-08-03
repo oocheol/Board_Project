@@ -39,27 +39,6 @@ public class LoginAct {
         }
     }
 
-    @RequestMapping("/loginComplete")
-    public String loginComplete(MemberVO vo, HttpServletResponse res) throws IOException {
-
-
-        MemberVO mvo = test.login(vo);
-        if (mvo != null){
-            log.error("로그인 성공");
-            CookieUtil.createCookie(res, "id", mvo.getMbId());
-
-            if (mvo.getAdmin().equals("1")){
-                // Admin이 1인 경우 = 관리자
-                // Admin이 0인 경우 = 일반 유저
-                return "redirect:admin/admin_main";
-            }
-            return "redirect:main";
-        } else {
-            log.error("로그인 실패");
-            return "redirect:login";
-        }
-    }
-
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response){
 
@@ -74,8 +53,6 @@ public class LoginAct {
                 }
                 return "redirect:kakaoLogout";
             }
-
-
             if(cookies != null){ // 쿠키가 한개라도 있으면 실행
 
                 for(int i=0; i< cookies.length; i++){
@@ -90,7 +67,7 @@ public class LoginAct {
 
     @RequestMapping("/kakao")
     public String kakao(){
-        return "redirect:https://kauth.kakao.com/oauth/authorize?client_id=d063d1ad6b1c07a4bd10a0c8fa990556&redirect_uri=http://172.30.1.3/kakaoLogin&response_type=code";
+        return "redirect:https://kauth.kakao.com/oauth/authorize?client_id=d063d1ad6b1c07a4bd10a0c8fa990556&redirect_uri=http://localhost/kakaoLogin&response_type=code";
     }
 
     @RequestMapping("/kakaoLogin")
@@ -113,7 +90,7 @@ public class LoginAct {
     @RequestMapping("/kakaoLogout")
     public String kakaoLogout(){
 
-        return "redirect:https://kauth.kakao.com/oauth/logout?client_id=d063d1ad6b1c07a4bd10a0c8fa990556&logout_redirect_uri=http://172.30.1.3/main";
+        return "redirect:https://kauth.kakao.com/oauth/logout?client_id=d063d1ad6b1c07a4bd10a0c8fa990556&logout_redirect_uri=http://localhost/main";
 
     }
 

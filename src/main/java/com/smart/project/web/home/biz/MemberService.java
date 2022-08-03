@@ -33,7 +33,7 @@ public class MemberService {
             sb.append("grant_type=authorization_code");
 
             sb.append("&client_id=d063d1ad6b1c07a4bd10a0c8fa990556"); //본인이 발급받은 key
-            sb.append("&redirect_uri=http://172.30.1.3/kakaoLogin"); // 본인이 설정한 주소
+            sb.append("&redirect_uri=http://localhost/kakaoLogin"); // 본인이 설정한 주소
 
             sb.append("&code=" + authorize_code);
             bw.write(sb.toString());
