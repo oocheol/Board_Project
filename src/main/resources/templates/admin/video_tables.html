@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Tables - SB Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet"/>
+    <link href="/resources/assets/css/styles.css" rel="stylesheet"/>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<style>
+    .modal {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal_body {
+        position: absolute;
+        top: 53%;
+        left: 54%;
+        width: 700px;
+        height: 436px;
+        line-height: 110px;
+        text-align: center;
+        background-color: rgba(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: 0 2px 3px 0 rgb(34 36 38 / 15%);
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    .modal_body > h3 {
+        font-size: 35px;
+        margin: 30px 30px 30px 30px;
+
+    }
+
+    .modal_body > button {
+        position: absolute;
+        right: 0px;
+        top: -50px;
+        font-size: 40px;
+        line-height: 10px;
+        border: 0px solid gray;
+        height: 20px;
+        color: black;
+        opacity: 10;
+    }
+
+    .modal_body>iframe {
+        width: 650px;
+        height: 300px;
+        margin: -140px 0px 50px 0px;
+    }
+
+
+    button.close {
+        height: 32px;
+        margin-left: 9px;
+        font-size: 20px;
+        position: absolute;
+        top: 18px;
+        margin-right: 24px;
+    }
+
+    tbody {
+        font-size: 13px;
+    }
+
+    .breadcrumb {
+        padding: 0px;
+    }
+
+    td>input.cb {
+        position: relative;
+        top: 2px;
+    }
+
+    #layoutSidenav {
+        display: flex;
+        margin: 23px 45px 0px 74px;
+    }
+
+    .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+        padding-left: 200px;
+        top: 56px;
+    }
+
+    .on {
+        cursor: pointer;
+    }
+
+    .card-header {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .modal_body p{
+        font-size: 20px;
+        padding: 18px 0px 0px 0px;
+
+    }
+    tr th, th, td{
+        text-align: center;
+    }
+    .dataTable-sorter{
+        text-align: center;
+    }
+
+
+</style>
+<body class="sb-nav-fixed">
+<th:block th:replace="fragment/admin_head :: adminFragment"></th:block>
+<div id="layoutSidenav_content">
+    <main>
+        <br>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4" style="text-align: center">동영상관리</h1>
+            <ol class="breadcrumb mb-4">
+            </ol>
+            <div class="card mb-4">
+            </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                동영상
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>동영상</th>
+                        <th>분석소요시간</th>
+                        <th>용량</th>
+                        <th>동영상삭제</th>
+                        <th>카카오톡알림</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="on">System Architect</td>
+                        <td>11초</td>
+                        <td>61MB</td>
+                        <td>X</td>
+                        <td>22-07-01 AM 07:02 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="on">Accountant</td>
+                        <td>12초</td>
+                        <td>63MB</td>
+                        <td>X</td>
+                        <td>22-07-01 AM 09:15 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="on">Junior Technical Author</td>
+                        <td>13초</td>
+                        <td>66MB</td>
+                        <td>X</td>
+                        <td>22-07-02 PM 03:16 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="on">Senior Javascript Developer</td>
+                        <td>13초</td>
+                        <td>22MB</td>
+                        <td>X</td>
+                        <td>22-07-03 PM 01:43 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="on">Accountant</td>
+                        <td>14초</td>
+                        <td>33MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td class="on">Integration Specialist</td>
+                        <td>11초</td>
+                        <td>61MB</td>
+                        <td>X</td>
+                        <td>22-07-04 AM 02:48 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td class="on">Sales Assistant</td>
+                        <td>10초</td>
+                        <td>59MB</td>
+                        <td>X</td>
+                        <td>22-07-01 PM 02:57 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td class="on">Integration Specialist</td>
+                        <td>19초</td>
+                        <td>55MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td class="on">Javascript Developer</td>
+                        <td>23초</td>
+                        <td>39MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td class="on">Software Engineer</td>
+                        <td>22초</td>
+                        <td>23MB</td>
+                        <td>X</td>
+                        <td>22-07-08 PM 06:42 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Jena Gaines</td>
+                        <td class="on">Office Manager</td>
+                        <td>23초</td>
+                        <td>30MB</td>
+                        <td>X</td>
+                        <td>22-07-02 PM 07:19 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Quinn Flynn</td>
+                        <td class="on">Support Lead</td>
+                        <td>12초</td>
+                        <td>22MB</td>
+                        <td>X</td>
+                        <td>22-07-02 AM 01:18 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Charde Marshall</td>
+                        <td class="on">Regional Director</td>
+                        <td>13초</td>
+                        <td>36MB</td>
+                        <td>X</td>
+                        <td>22-07-02 AM 02:23 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Haley Kennedy</td>
+                        <td class="on">Senior Marketing Designer</td>
+                        <td>15초</td>
+                        <td>43MB</td>
+                        <td>X</td>
+                        <td>22-07-02 PM 05:36 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Tatyana Fitzpatrick</td>
+                        <td class="on">Regional Director</td>
+                        <td>12초</td>
+                        <td>19MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Michael Silva</td>
+                        <td class="on">Marketing Designer</td>
+                        <td>18초</td>
+                        <td>66MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Paul Byrd</td>
+                        <td class="on">Chief Financial Officer (CFO)</td>
+                        <td>15초</td>
+                        <td>64MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Gloria Little</td>
+                        <td class="on">Systems Administrator</td>
+                        <td>18초</td>
+                        <td>59MB</td>
+                        <td>X</td>
+                        <td>22-07-04 PM 04:16 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Bradley Greer</td>
+                        <td class="on">Software Engineer</td>
+                        <td>9초</td>
+                        <td>41MB</td>
+                        <td>X</td>
+                        <td>22-07-03 PM 00:14 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Dai Rios</td>
+                        <td class="on">Personnel Lead</td>
+                        <td>13초</td>
+                        <td>35MB</td>
+                        <td>X</td>
+                        <td>22-07-02 PM 01:11 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Jenette Caldwell</td>
+                        <td class="on">Development Lead</td>
+                        <td>23초</td>
+                        <td>30MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Yuri Berry</td>
+                        <td class="on">Chief Marketing Officer (CMO)</td>
+                        <td>24초</td>
+                        <td>40MB</td>
+                        <td>X</td>
+                        <td>22-07-02 PM 07:30 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Caesar Vance</td>
+                        <td class="on">Pre-Sales Support</td>
+                        <td>12초</td>
+                        <td>21MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Doris Wilder</td>
+                        <td class="on">Sales Assistant</td>
+                        <td>2분</td>
+                        <td>23MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Angelica Ramos</td>
+                        <td class="on">Chief Executive Officer (CEO)</td>
+                        <td>4분</td>
+                        <td>47MB</td>
+                        <td>X</td>
+                        <td>22-07-04 AM 05:19 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Gavin Joyce</td>
+                        <td class="on">Developer</td>
+                        <td>3분</td>
+                        <td>42MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jennifer Chang</td>
+                        <td class="on">Regional Director</td>
+                        <td>2분</td>
+                        <td>28MB</td>
+                        <td>X</td>
+                        <td>22-07-03 AM 04:11 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Brenden Wagner</td>
+                        <td class="on">Software Engineer</td>
+                        <td>2분</td>
+                        <td>28MB</td>
+                        <td>X</td>
+                        <td>22-07-01 AM 07:19 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Fiona Green</td>
+                        <td class="on">Chief Operating Officer (COO)</td>
+                        <td>3분</td>
+                        <td>48MB</td>
+                        <td>X</td>
+                        <td>22-07-06 AM 00:14 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Shou Itou</td>
+                        <td class="on">Regional Marketing</td>
+                        <td>2분</td>
+                        <td>20MB</td>
+                        <td>X</td>
+                        <td>22-07-03 AM 01:26 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Michelle House</td>
+                        <td class="on">Integration Specialist</td>
+                        <td>2분</td>
+                        <td>37MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Suki Burks</td>
+                        <td class="on">Developer</td>
+                        <td>7분</td>
+                        <td>53MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Prescott Bartlett</td>
+                        <td class="on">Technical Author</td>
+                        <td>2분</td>
+                        <td>27MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Gavin Cortez</td>
+                        <td class="on">Team Leader</td>
+                        <td>2분</td>
+                        <td>22MB</td>
+                        <td>X</td>
+                        <td>22-07-04 PM 06:34 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Martena Mccray</td>
+                        <td class="on">Post-Sales support</td>
+                        <td>3분</td>
+                        <td>46MB</td>
+                        <td>X</td>
+                        <td>22-07-01 AM 02:12 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Unity Butler</td>
+                        <td class="on">Marketing Designer</td>
+                        <td>3분</td>
+                        <td>47MB</td>
+                        <td>X</td>
+                        <td>22-07-06 AM 08:40 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Howard Hatfield</td>
+                        <td class="on">Office Manager</td>
+                        <td>5분</td>
+                        <td>51MB</td>
+                        <td>X</td>
+                        <td>22-07-04 AM 07:39 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Hope Fuentes</td>
+                        <td class="on">Secretary</td>
+                        <td>3분</td>
+                        <td>41MB</td>
+                        <td>X</td>
+                        <td>22-07-05 PM 06:42 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Vivian Harrell</td>
+                        <td class="on">Financial Controller</td>
+                        <td>6분</td>
+                        <td>62MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Timothy Mooney</td>
+                        <td class="on">Office Manager</td>
+                        <td>2분</td>
+                        <td>37MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jackson Bradshaw</td>
+                        <td class="on">Director</td>
+                        <td>7분</td>
+                        <td>65MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Olivia Liang</td>
+                        <td class="on">Support Engineer</td>
+                        <td>7분</td>
+                        <td>64MB</td>
+                        <td>X</td>
+                        <td>22-07-02 AM 03:12 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Bruno Nash</td>
+                        <td class="on">Software Engineer</td>
+                        <td>3분</td>
+                        <td>38MB</td>
+                        <td>X</td>
+                        <td>22-07-06 AM 04:53 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Sakura Yamamoto</td>
+                        <td class="on">Support Engineer</td>
+                        <td>2분</td>
+                        <td>37MB</td>
+                        <td>X</td>
+                        <td>22-07-05 AM 02:51 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Thor Walton</td>
+                        <td class="on">Developer</td>
+                        <td>10분</td>
+                        <td>61MB</td>
+                        <td>X</td>
+                        <td>22-07-02 AM 07:55 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Finn Camacho</td>
+                        <td class="on">Support Engineer</td>
+                        <td>3분</td>
+                        <td>47MB</td>
+                        <td>X</td>
+                        <td>22-07-03 PM 02:53 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Serge Baldwin</td>
+                        <td class="on">Data Coordinator</td>
+                        <td>12분</td>
+                        <td>64MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Zenaida Frank</td>
+                        <td class="on">Software Engineer</td>
+                        <td>9분</td>
+                        <td>63MB</td>
+                        <td>X</td>
+                        <td>22-07-02 PM 03:23 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Zorita Serrano</td>
+                        <td class="on">Software Engineer</td>
+                        <td>6분</td>
+                        <td>56MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jennifer Acosta</td>
+                        <td class="on">Junior Javascript Developer</td>
+                        <td>4분</td>
+                        <td>43MB</td>
+                        <td>X</td>
+                        <td>22-07-02 AM 06:51 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Cara Stevens</td>
+                        <td class="on">Sales Assistant</td>
+                        <td>4분</td>
+                        <td>46MB</td>
+                        <td>X</td>
+                        <td>22-07-07 AM 02:55 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Hermione Butler</td>
+                        <td class="on">Regional Director</td>
+                        <td>4분</td>
+                        <td>47MB</td>
+                        <td>X</td>
+                        <td>22-07-02 PM 02:16 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Lael Greer</td>
+                        <td class="on">Systems Administrator</td>
+                        <td>2분</td>
+                        <td>21MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jonas Alexander</td>
+                        <td class="on">Developer</td>
+                        <td>2분</td>
+                        <td>30MB</td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Shad Decker</td>
+                        <td class="on">Regional Director</td>
+                        <td>8분</td>
+                        <td>51MB</td>
+                        <td>X</td>
+                        <td>22-07-02 AM 02:25 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Michael Bruce</td>
+                        <td class="on">Javascript Developer</td>
+                        <td>2분</td>
+                        <td>29MB</td>
+                        <td>X</td>
+                        <td>22-07-08 PM 02:32 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    <tr>
+                        <td>Donna Snider</td>
+                        <td class="on">Customer Support</td>
+                        <td>2분</td>
+                        <td>27MB</td>
+                        <td>X</td>
+                        <td>22-07-07 PM 09:49 &ensp;<input type="checkbox" class="cb"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+
+</main>
+<div class="modal">
+    <div class="modal_body">
+        <p>2022.07.20</p>
+        <br>
+        <button type="button" class="close" onclick="click()" data-dismiss="modal">X</button>
+        <iframe src="/resources/assets/images/accident.mp4" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+
+
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+<script src="/resources/assets/js/scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script src="/resources/assets/js/datatables-simple-demo.js"></script>
+<!--<script>-->
+<!--    const modal = document.querySelector('.modal');-->
+<!--    const btnOpenPopup = document.querySelector('.btn-open-popup');-->
+<!--    const btnClose = document.querySelector('.close');-->
+
+<!--    btnOpenPopup.addEventListener('click', () => {-->
+<!--        modal.style.display = 'block';-->
+<!--    });-->
+
+<!--    btnClose.addEventListener('click', () => {-->
+<!--        modal.style.display = 'none';-->
+<!--    });-->
+
+<!--</script>-->
+<script>
+    $(document).on("click", ".on", function () {
+
+        var getD_id = $(this).children("td:eq(0)").text(),
+            getDiary = $(this).children("td:eq(1)").text(),
+            getD_date = $(this).children("td:eq(2)").text()
+
+        // $("#date_write").text(getD_date.substring(0,10));
+        // $("#diary_good").text(getDiary);
+        // $("#diary_good_rate").text(getD_id);
+        $('.modal').css('display', 'block');
+    });
+
+    $(document).on("click", ".close", function () {
+        $('.modal').css('display', 'none');
+    })
+</script>
+</body>
+</html>

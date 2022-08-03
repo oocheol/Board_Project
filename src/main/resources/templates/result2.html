@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="/resources/assets/images/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resources/assets/images/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Template specific stylesheets-->
+    <link href="/resources/assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="/resources/assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/resources/assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="/resources/assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="/resources/assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/resources/assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="/resources/assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="/resources/assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+
+    <link href="/resources/assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/resources/assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="/resources/assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/resources/assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="/resources/assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="/resources/assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/resources/assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="/resources/assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="/resources/assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+    <link href="/resources/assets/css/style.css" rel="stylesheet">
+    <link id="color-scheme" href="/resources/assets/css/colors/default.css" rel="stylesheet">
+</head>
+
+
+<style>
+    .row{
+        margin-left: 100px;
+    }
+
+    video{
+        width: 500px;
+        height: 300px;
+        text-aglin:center;
+        display:inline-block;
+    }
+    .chart{
+        margin-top: 60px;
+        width:700px;
+        margin-left: -100px;
+        display:inline-block;
+    }
+
+    a{
+        text-transform:none !important;
+    }
+
+
+    body,.main{
+        padding-right: 0 !important;
+    }
+    .modal-open { padding-right: 0px !important; }
+    .modal { padding-right: 0px !important; }
+    .panel-body{
+        font-size: 20px;
+    }
+
+    .col-sm-4{
+        margin-left: 8%;
+    }
+
+    button a{
+        color: white;
+    }
+
+
+    @media screen and (max-width: 400px) {
+
+        h2{
+            font-size: 3em !important;
+            margin-top: -10rem;
+            color: white;
+        }
+
+        .video{
+            width: 100%;
+            height: 100%;
+        }
+
+        .row{
+            margin-left: -20px;
+        }
+
+
+    }
+
+</style>
+
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+
+
+<th:block th:replace="fragment/head :: headFragment"></th:block>
+
+<div class="main">
+    <section class="module">
+        <div class="container">
+
+                <section class="module-medium" id="contact">
+                    <h1></h1>
+                </section>
+            <h2 style="text-align: center; color: black;letter-spacing: 7px; font-size: 45px ">결과보기</h2>
+            <br>
+            <hr class="divider-w pt-20">
+
+            <div class="row">
+                <div class="col-sm-4" style="margin-top: 10%;">
+                <video controls>
+                    <source  src="/resources/assets/images/accident.mp4" type="video/mp4">
+                이 브라우저에서 지원하지 않는 영상입니다.
+                </video>
+                    </div>
+                <div class="col-sm-4">
+                <div class="chart" ><canvas  id="pie-chart" ></canvas></div>
+                    </div>
+            </div>
+
+        </div>
+
+    </section>
+<section class="module">
+    <div class="container">
+        <div class="row">
+                <div role="tabpanel">
+                    <ul class="nav nav-tabs font-alt" role="tablist">
+                        <!--<li class="active"><a href="#support" data-toggle="tab"><span class="icon-tools-2"></span>support</a></li>-->
+                        <li class="active"><a href="#sales" data-toggle="tab"><span class="icon-tools-2"></span>판례</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="hidden" id="support">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title font-alt"><a data-toggle="collapse" data-parent="#accordion" href="#support1">판례 1</a></h4>
+                                    </div>
+                                    <div class="panel-collapse collapse in" id="support1">
+                                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title font-alt"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#support2">판례 2</a></h4>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="support2">
+                                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 판례는 여기에 적용하기!!!!-->
+                        <div class="tab-pane active" id="sales">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title font-alt"><a data-toggle="collapse" data-parent="#accordion" href="#sales1" style="font-size: 14px">판례 1</a></h4>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="sales1">
+                                        <div class="panel-body">
+                                            <p style="color: black">청구차량 30% : 피청구차량 70%</p>
+                                            <a class="font-alt">◆ 심의접수번호 2016-020301</a><br><a class="font-alt">주간에 신호등 있는 사거리교차로에서 청구차량 우측에서 황색신호에 직진 중, 피청구차량 좌측에서 적색신호에 직진하다가 피청구차량의 전면부와 청구차량의 좌측후면부가 충돌한 사고. 피청구차량 적색신호에 진입한 점, 파손부위 등 감안</a>
+                                            <span style="float: right"><a class="btn btn-g btn-round font-alt" style="color: black;font-size: 15px;font-weight: 700">판례링크</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title font-alt"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#sales2" style="font-size: 14px" >판례 2</a></h4>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="sales2">
+                                        <div class="panel-body">
+                                            <p style="color: black">청구차량 30% : 피청구차량 70%</p>
+                                            <a class="font-alt">◆ 심의접수번호 2016-021767 </a><br><a class="font-alt">주간에 신호등 있는 사거리교차로에서 청구차량 좌측에서 황색 점멸신호에 직진 중, 피청구차량 우측에서 적색 점멸신호에 직진하다가 피청구차량의 좌측면과 청구차량의 전면부가 충돌한 사고. 피청구차량 적색 점멸신호에 진행한 점 감안</a>
+                                            <span style="float: right"><a class="btn btn-g btn-round font-alt" style="color: black;font-size: 15px;font-weight: 700">판례링크</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div style="text-align: center;">
+    <a>
+        <button class="btn btn-b btn-round" type="submit" style="height: 45px; font-size: 23px; margin-right: 30px;padding-bottom:40px"><a class="font-alt" href="myList">뒤로가기</a></button>
+    </a>
+    <a>
+        <button class="btn btn-b btn-round" type="submit" style="height: 45px; font-size: 23px;padding-bottom:40px"><a class="font-alt" href="write">공유하기</a></button>
+    </a>
+    </div>
+</section>
+
+</div>
+
+    </main>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>-->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+<!--
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>-->
+<script>
+    new Chart(document.getElementById("pie-chart"), {
+        type: 'pie',
+        data: {
+            labels: ["A", "B"],
+            datasets: [{
+                display: true,
+                backgroundColor: [ "#EB6361","#008BCD"],
+                data: [30,70],
+                datalabels:{
+                        color:'white',
+                        font:{size:40, weight:700},
+                    }
+            }],
+            /*datalabels: {
+               align: 'center',
+               anchor: 'center',
+      }*/
+
+        },
+        options: {
+            title: {
+                display: true,
+                text: '적용과실',
+                fontSize: 20,
+            },
+            pieceLabel: {
+                mode:"label",
+                position:"outside",
+                fontSize: '18px',
+                fontStyle: 'bold'
+            }
+
+        },
+
+    });
+
+  /*  // Pie Chart ctx Get
+    var PieChart_ctx = document.getElementById('cPieChart').getContext('2d');
+
+    // Pie Chart Config Set
+    PieChart_config = {
+        type: 'pie',
+        data: {
+            labels: ['OPEN', 'PROGRESSING', 'COMPLETE'],
+            data: [13,11,14],
+            datasets: [{
+                label: 'Pie Chart Count',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1,
+                datalabels: {
+                    labels: {
+                        value: {
+                            borderWidth: 2,
+                            borderRadius: 4,
+                            font: {size: 15},
+                            formatter: function(value, ctx) {
+                                var value = ctx.dataset.data[ctx.dataIndex];
+                                return value > 0 ? Math.round(value / (ctx.dataset.data[0] + ctx.dataset.data[1] + ctx.dataset.data[2]) * 100) + ' %' : null;
+                            },
+                            color: function(ctx) {
+                                var value = ctx.dataset.data[ctx.dataIndex];
+                                return value > 0 ? 'white' : null;
+                            },
+                            backgroundColor:function(ctx) {
+                                var value = ctx.dataset.data[ctx.dataIndex];
+                                return value > 0 ? 'gray' : null;
+                            },
+                            padding: 4
+                        }
+                    }
+                }
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio : false,
+            animation: false,
+            legend: {
+                position: 'left',
+                display: true
+            },
+            title: {
+                display: false,
+                text: 'Pie Chart - Count',
+                font: {
+                    size: 50
+                },
+                fontstyle: 'bold',
+                position: 'top'
+            },
+            plugins: {
+                legend: {
+                    position: 'left',
+                },
+                title: {
+                    display: true,
+                    text: 'Pie Chart - Count',
+                    font: {
+                        size: 25
+                    }
+                }
+            }
+        }
+    };
+
+
+    // Pie Chart Create
+    var PieChart = new Chart(PieChart_ctx, PieChart_config);
+
+    // Pie Chart Event Set
+    document.getElementById("cPieChart").onclick = function(evt) {
+
+        var activePoints = PieChart.getElementsAtEvent(evt);
+
+        if(activePoints.length > 0)
+        {
+            //get the internal index of slice in pie chart
+            var clickedElementindex = activePoints[0]["_index"];
+
+            //get specific label by index
+            var label = PieChart.data.labels[clickedElementindex];
+
+            //get value by index
+            var value = PieChart.data.datasets[0].data[clickedElementindex];
+
+            // label and value Process
+
+        }
+    };*/
+
+
+</script>
+<script src="/resources/assets/lib/jquery/dist/jquery.js"></script>
+<script src="/resources/assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/resources/assets/lib/wow/dist/wow.js"></script>
+<script src="/resources/assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+<script src="/resources/assets/lib/isotope/dist/isotope.pkgd.js"></script>
+<script src="/resources/assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+<script src="/resources/assets/lib/flexslider/jquery.flexslider.js"></script>
+<script src="/resources/assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+<script src="/resources/assets/lib/smoothscroll.js"></script>
+<script src="/resources/assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+<script src="/resources/assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+<script src="/resources/assets/js/plugins.js"></script>
+<script src="/resources/assets/js/main.js"></script>
+</body>
+</html>
