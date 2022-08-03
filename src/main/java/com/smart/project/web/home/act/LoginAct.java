@@ -1,10 +1,8 @@
 package com.smart.project.web.home.act;
 
-import com.mysql.cj.Session;
 import com.smart.project.proc.Test;
 import com.smart.project.util.CookieUtil;
 import com.smart.project.web.home.biz.MemberService;
-import com.smart.project.web.home.vo.MemberVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -16,9 +14,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 
 @Slf4j
 @Controller
@@ -27,17 +23,6 @@ public class LoginAct {
     private final MemberService ms;
     public final Test test;
 
-    @RequestMapping("/joinComplete")
-    public String joinComplete(@ModelAttribute MemberVO vo){
-        if (vo != null) {
-            int cnt = test.joinComplete(vo);
-            log.error("join 성공 ==>{}", cnt + "");
-
-            return "redirect:/main";
-        } else{
-            return "redirect:/join";
-        }
-    }
 
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response){

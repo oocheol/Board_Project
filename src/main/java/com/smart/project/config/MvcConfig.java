@@ -34,7 +34,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {"classpath:/static/"};
     private String connectPath = "/image/**";
-    private String resourcePath = "file:///C:/tmp/";
+    private String resourcePath = "file:///C:/photo/";
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

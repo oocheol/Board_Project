@@ -25,12 +25,6 @@ public class HomeTestAct3 {
         return "fragment/head";
     }
 
-    @RequestMapping("/admin_head")
-    public String adminHead(){
-        return "fragment/admin_head";
-    }
-
-
     @RequestMapping("/login")
     public void login(){
     }
@@ -80,17 +74,13 @@ public class HomeTestAct3 {
 
     }
 
-    @RequestMapping("/service")
-    public void service(){
-
-    }
 
     // 동영상 업로드
-    @RequestMapping("/upload")
-    public void upload(HttpSession session, Model model){
-        String token = (String) session.getAttribute("token");
-        model.addAttribute("token", token);
-    }
+//    @RequestMapping("/upload")
+//    public void upload(HttpSession session, Model model){
+//        String token = (String) session.getAttribute("token");
+//        model.addAttribute("token", token);
+//    }
 
 
     // 분석결과 페이지
@@ -104,17 +94,7 @@ public class HomeTestAct3 {
 
     }
 
-    // 회원정보수정
-    @RequestMapping("/join_edit")
-    public void join_edit(){
 
-    }
-
-    // 회원가입
-    @RequestMapping("/join")
-    public void join(){
-
-    }
 
     // 커뮤니티
     @RequestMapping("/community")
@@ -138,38 +118,6 @@ public class HomeTestAct3 {
     public void write(){
 
     }
-
-
-    /*========================================================================================*/
-
-    /* 관리자 페이지*/
-
-    // 메인
-    @RequestMapping("admin/admin_main")
-    public String adminMain(){
-        return "admin/admin_main";
-    }
-
-    // 회원관리
-    @RequestMapping("admin/member_tables")
-    public String member_tables(){
-        return "admin/member_tables";
-    }
-
-    // 동영상관리
-    @RequestMapping("admin/video_tables")
-    public String video_tables(){
-        return "admin/video_tables";
-    }
-
-
-
-    @RequestMapping("portfolio_single_featured_slider2")
-    public String portfolio(){
-        return "portfolio_single_featured_slider2";
-    }
-
-
 
 
 }

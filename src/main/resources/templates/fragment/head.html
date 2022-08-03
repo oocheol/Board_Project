@@ -132,11 +132,11 @@
 <!--                    <li><a href="service">서비스</a></li>-->
 <!--                    <li><a href="upload">영상업로드</a></li>-->
                     <li><a href="community">커뮤니티</a></li>
-                    <li class="dropdown"><a  data-toggle="dropdown">마이페이지</a>
-                        <ul class="dropdown-menu">
+<!--                    <li class="dropdown"><a  data-toggle="dropdown"></a>-->
+<!--                        <ul class="dropdown-menu">-->
                             <li><a href="myList">내 게시판</a></li>
-                            <li><a href="join_edit">회원정보수정</a></li>
-                        </ul>
+<!--                            <li><a href="join_edit">회원정보수정</a></li>-->
+<!--                        </ul>-->
                     </li>
                     <li th:if="${#request.getCookies()== null}"><a data-toggle="modal" href="#loginModal"> | 로그인</a></li>
                     <li th:if="${#request.getCookies()!= null}"><a th:href="@{/logout}"> | 로그아웃</a></li>
