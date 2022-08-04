@@ -10,7 +10,6 @@ import java.sql.Timestamp;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 public class BoardVO {
     private int boardNum;
     private String title;

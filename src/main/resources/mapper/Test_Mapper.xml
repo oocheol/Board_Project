@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.smart.project.proc.Test" >
+<mapper namespace="com.smart.project.proc.Board" >
 <!--    <select id="login" resultType="com.smart.project.web.home.vo.MemberVO" parameterType="com.smart.project.web.home.vo.MemberVO">-->
 <!--        SELECT * FROM t_member-->
 <!--        where mb_id=#{mbId} and mb_pw=#{mbPw};-->
 <!--    </select>-->
 
-<!--    <insert id="joinComplete" parameterType="com.smart.project.web.home.vo.MemberVO">-->
-<!--        INSERT INTO t_member-->
-<!--        VALUES (#{mbId}, #{mbPw}, #{mbPhone}, #{mbNick}, 0);-->
-<!--    </insert>-->
-
-<!--    <insert id="insertVideo" parameterType="com.smart.project.web.home.vo.MemberVO">-->
-<!--        INSERT INTO t_video (mb_id, video_title,  video_content, video_path, reg_date, good, nogood, share, deep_time, video_size, alert, rate, case_law, link)-->
-<!--        VALUES (null, 'video_title 1','video_content 1', 'video_path 1', NOW(), 1, 1, 'N', NOW(), 1, 'N', 1, 'case_law 1', 'link 1');-->
-<!--    </insert>-->
+    <insert id="uploadPhoto" parameterType="com.smart.project.web.home.vo.BoardVO">
+        INSERT INTO photo
+        VALUES (null, #{innerPath}, #{outPath}, NOW());
+    </insert>
 
 </mapper>

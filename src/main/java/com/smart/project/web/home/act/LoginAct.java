@@ -67,6 +67,7 @@ public class LoginAct {
         log.error("###access_Token#### : " + access_Token);
         log.error("###nickname#### : " + userInfo.get("nickname"));
         log.error("###email#### : " + userInfo.get("email"));
+        session.setAttribute("id", userInfo.get("email"));
 
         return "redirect:/main";
 
