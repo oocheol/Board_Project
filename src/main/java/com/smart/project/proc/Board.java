@@ -1,6 +1,7 @@
 package com.smart.project.proc;
 
 import com.smart.project.annotation.Master;
+import com.smart.project.web.home.vo.BoardVO;
 import com.smart.project.web.home.vo.PhotoVO;
 import org.springframework.stereotype.Component;
 
@@ -15,5 +16,9 @@ public interface Board {
      **********************************************************************************************/
 
     int uploadPhoto(PhotoVO vo);
+
+    PhotoVO selectPhotoNum();
+
+    int insertBoard(BoardVO vo);
 
 }

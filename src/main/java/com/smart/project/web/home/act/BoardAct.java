@@ -1,9 +1,7 @@
 package com.smart.project.web.home.act;
 
-import com.smart.project.component.CommonCodeComponent;
 import com.smart.project.proc.Board;
-import com.smart.project.util.ClientUtil;
-import com.smart.project.web.home.biz.PhotoService;
+import com.smart.project.web.home.vo.BoardVO;
 import com.smart.project.web.home.vo.PhotoVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,18 +16,15 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Map;
 import java.util.UUID;
 
 @Slf4j
 @Controller
 @RequiredArgsConstructor
 public class BoardAct {
-
-    private static PhotoService photoService;
+    private static final String ROOTPATH = "C:/photo/";
     private final Board board;
 
-    private static final String ROOTPATH = "/photo/";
 
     /* 공통 영역*/
 //    @RequestMapping("/head")
@@ -121,9 +116,12 @@ public class BoardAct {
 
     // 업로드
     @RequestMapping("/upload")
-    public String saveFile(@RequestParam("file") MultipartFile file ,HttpServletRequest request, HttpSession session) throws Exception {
+    public String saveFile(BoardVO vo, @RequestParam("file") MultipartFile file, HttpServletRequest request, HttpSession session) throws Exception {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         Calendar c1 = Calendar.getInstance();
+
+        log.error("vo.title==>{}", vo.getTitle());
+        log.error("vo.content==>{}", vo.getContent());
 
         String strToday = sdf.format(c1.getTime());
         String fileRealName = file.getOriginalFilename();
@@ -186,8 +184,14 @@ public class BoardAct {
         }catch(Exception ex){
             throw new RuntimeException("file Save Error");
         }
-        PhotoVO vo = new PhotoVO(uploadFileName);
-        board.uploadPhoto(vo);
+        PhotoVO pvo = new PhotoVO(uploadFileName);
+        board.uploadPhoto(pvo);
+        PhotoVO pvoSelect = board.selectPhotoNum();
+        log.error("photoNum==>{}", pvoSelect.getPhotoNum());
+        vo.setContent(vo.getContent().substring(1));
+        vo.setPhotoNum(pvoSelect.getPhotoNum());
+        int cnt = board.insertBoard(vo);
+        log.error("boardCnt==>{}", cnt);
 
         return "redirect:/main";
     }

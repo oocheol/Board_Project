@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smart.project.proc.Board" >
-<!--    <select id="login" resultType="com.smart.project.web.home.vo.MemberVO" parameterType="com.smart.project.web.home.vo.MemberVO">-->
-<!--        SELECT * FROM t_member-->
-<!--        where mb_id=#{mbId} and mb_pw=#{mbPw};-->
-<!--    </select>-->
 
-    <insert id="uploadPhoto" parameterType="com.smart.project.web.home.vo.BoardVO">
+    <insert id="uploadPhoto" parameterType="com.smart.project.web.home.vo.PhotoVO">
         INSERT INTO photo
-        VALUES (null, #{innerPath}, #{outPath}, NOW());
+        VALUES (null, #{innerPath}, null, NOW());
     </insert>
 
+    <select id="selectPhotoNum" parameterType="com.smart.project.web.home.vo.PhotoVO" resultType="integer">
+        SELECT photoNum FROM photo
+        order by photoNum DESC;
+    </select>
+
+    <insert id="insertBoard" parameterType="com.smart.project.web.home.vo.BoardVO">
+        INSERT INTO board
+        VALUES (null, #{title}, #{content}, 0, 0, NOW(), #{photoNum});
+    </insert>
 </mapper>
